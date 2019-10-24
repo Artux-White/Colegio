@@ -1,0 +1,162 @@
+<div id="bienvenido" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center">Bienvenido</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Colegio de Guias de Turistas en Chiapas</h5>
+      </div>
+      <div class="row center">
+        <button [routerLink]="['/guias']" class="btn btn-large waves-effect waves-light" type="button"
+          name="action">Necesito un Guia</button>
+      </div>
+      <br><br>
+    </div>
+  </div>
+  <div class="parallax"><img src="../assets/Chiapas-San-Cristobal-web.jpg" alt="Unsplashed background img 1"
+      style="transform: translate3d(-50%, 240.037px, 0px); opacity: 1;"></div>
+</div>
+
+<div id="nosotros" class="container">
+  <div class="section">
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="icon-block">
+          <h2 class="center blue-text"><i class="material-icons">announcement</i></h2>
+          <h5 class="center">¿Que es un guia certificado?</h5>
+          <p class="center light">Somos prestadores de servicios turisticos que contamos con la capacitacion para poder
+            ofrecerte una experiencia de calidad en tu viaje</p>
+        </div>
+      </div>
+
+      <div class="col s12 m6">
+        <div class="icon-block">
+          <h2 class="center blue-text"><i class="material-icons">group</i></h2>
+          <h5 class="center">¿Como los identifico?</h5>
+          <p class="center light">Contamos con credenciales unicas avalados por la Secretaria de Turismo, pues son
+            quienes cumplen con la normativa y disposiciones legales aplicables</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="index-banner" class="parallax-container">
+  <div class="parallax"><img src="../assets/sancris2.jpg" alt="banner 1"
+      style="transform: translate3d(-50%, 240.037px, 0px); opacity: 1;"></div>
+</div>
+
+
+<!--Forms-->
+
+
+<div id="contacto" class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-content-send brown-text"></i></h3>
+        <h4>Contactanos</h4>
+        <p class="center light">Si quieres pertener al colegio o recibir informacion para la certificación contactanos
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="col s12" >
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix" style="color: #1c9d4f">account_circle</i>
+            <input id="name" type="text"class="form-control validate" required formControlName="name">
+            <label for="name">Nombre</label>
+            <div *ngIf="contactForm.controls['name'].invalid && (contactForm.controls['name'].dirty  || contactForm.controls['name'].touched) && contactForm.controls['name'].hasError('required') ">
+                <span class="helper-text" style="color: red" >Inserte un valor</span>
+            </div>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix" style="color: #1c9d4f">phone</i>
+            <input id="phone" type="text" class="form-control validate" required formControlName="phone">
+            <label for="phone">Telefono</label>
+            <div *ngIf="contactForm.controls['phone'].invalid && (contactForm.controls['phone'].dirty  || contactForm.controls['phone'].touched) && contactForm.controls['phone'].hasError('required') ">
+                <span class="helper-text" style="color: red">Inserte un numero telefonico</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix" style="color: #1c9d4f">email</i>
+            <input id="email" type="email" class="form-control validate" required formControlName="email">
+            <label for="email">Email</label>
+            <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty  || contactForm.controls['email'].touched) && contactForm.controls['email'].hasError('required') ">
+                <span class="helper-text" style="color: red">Inserte un valor</span>
+            </div>
+            <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty  || contactForm.controls['email'].touched) && contactForm.controls['email'].hasError('email') ">
+                <span class="helper-text" style="color: red">No es una direccion email valida</span>
+            </div>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix" style="color: #1c9d4f">subject</i>
+            <input id="subject" type="text" class="form-control validate" required formControlName="subject" data-length="10">
+            <label for="subject">Asunto</label>
+            <div *ngIf="contactForm.controls['subject'].invalid && (contactForm.controls['subject'].dirty  || contactForm.controls['subject'].touched) && contactForm.controls['subject'].hasError('required') ">
+                <span class="helper-text" style="color: red">Inserte un valor</span>
+            </div>
+            <div *ngIf="contactForm.controls['subject'].invalid && (contactForm.controls['subject'].dirty  || contactForm.controls['subject'].touched) && contactForm.controls['subject'].hasError('minlength') ">
+                <span class="helper-text" style="color: red">Inserte por lo menos 10 caracteres</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix" style="color: #1c9d4f">chat_bubble_outline</i>
+            <input id="body" type="text" class="form-control validate" required formControlName="body" data-length="10">
+            <label for="body">Mensaje</label>
+            <div *ngIf="contactForm.controls['body'].invalid && (contactForm.controls['body'].dirty  || contactForm.controls['body'].touched) && contactForm.controls['body'].hasError('required') ">
+                <span class="helper-text" style="color: red">Inserte un valor</span>
+            </div>
+            <div *ngIf="contactForm.controls['body'].invalid && (contactForm.controls['body'].dirty  || contactForm.controls['body'].touched) && contactForm.controls['body'].hasError('minlength') ">
+                <span class="helper-text" style="color: red">Inserte por lo menos 10 caracteres</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col m12">
+            <p class="center"><button type="submit"  [disabled]="contactForm.pristine || contactForm.invalid" class="btn btn-large waves-effect waves-light">Enviar</button></p>
+          </div>
+        </div>
+        <!-- <p>Form value: {{ contactForm.value | json }}</p>-->
+        <!-- <p>Form status: {{ contactForm.status | json }}</p>  -->
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<footer id="ligas" class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Colegio de guias de Turistas en Chiapas, A.C.</h5>
+        <p class="grey-text text-lighten-4"></p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Otras ligas de interes:</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="https://www.gob.mx/sectur" target="_blank">Secretaria de
+              turismo</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://www.turismochiapas.gob.mx" target="_blank">Turismo
+              Chiapas</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://www.chiapas.gob.mx/" target="_blank">Gobierno de
+              Chiapas</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2019 Copyright Colegio de guias de Turistas en Chiapas, A.C.
+    </div>
+  </div>
+</footer>

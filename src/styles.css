@@ -1,1 +1,131 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+
+html,
+body,
+
+
+
+      
+
+.login-box {
+  height: 100%;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+
+nav ul a:hover {
+    border-left: 5px solid #295e7a;
+    background: #1c9d4f;
+    color: white;
+}
+
+.blue-text {
+    color: #295e7a !important;
+}
+
+.page-footer{
+    background-color: #295e7a;
+}
+
+.btn, .btn-large, .btn-small{
+    background-color: #295e7a;
+}
+
+:before, :after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card .content-overlay {
+  background: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.card:hover .content-overlay {
+  opacity: 1;
+}
+.card:hover .content-details {
+  top: 30%;
+  left: 50%;
+  opacity: 1;
+}
+
+.card:hover .card-content .circle{
+  opacity: 0;
+}
+
+
+.content-details {
+  position: absolute;
+  text-align: justify;
+  font-weight: bolder;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 30%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out 0s;
+}

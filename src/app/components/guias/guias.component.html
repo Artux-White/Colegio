@@ -1,0 +1,82 @@
+<nav style="background: #295e7a">
+  <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large right"><i
+      class="material-icons">filter_list</i></a>
+  <div class="nav-wrapper container">
+    <form>
+      <div class="input-field">
+        <input id="search" type="search" required [(ngModel)]="params" [ngModelOptions]="{standalone: true}">
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+      </div>
+    </form>
+  </div>
+</nav>
+
+<ul id="slide-out" class="sidenav">
+  <h4 class="center">Filtros de busqueda</h4>
+  <div class="card-panel">Tipo de Guia
+    <div class="card-content">
+      <form>
+        <p>
+          <label>
+            <input type="checkbox" />
+            <span>Aventura</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" />
+            <span>General</span>
+          </label>
+        </p>
+      </form>
+    </div>
+  </div>
+  <div class="card-panel">Idiomas
+    <div class="card-content">
+      <form>
+        <p *ngFor="let lengua of languages">
+          <label>
+            <input type="checkbox" value="{{lengua.selected}}" id="{{lengua.id}}" [(ngModel)]="l[lengua.name]" (ngModelChange)="checkValue()" [ngModelOptions]="{standalone: true}"/> 
+            <span>{{lengua.name}}</span>
+          </label>
+        </p>
+      </form>
+      {{ l | json}}
+    </div>
+  </div>
+</ul>
+
+
+<h1></h1>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let guia of guiasList | filter: params" class="col s3 m4">
+      <div class="card large hoverable">
+        <div class="card-image">
+          <img src="../../../assets/polygonal-texture-background-vector.webp">
+          <span class="card-title">{{guia.name}}</span>
+          <div class="content-overlay">
+          </div>
+        </div>
+        <div class="card-content">
+          <img class="circle z-depth-2 responsive-img activator" style="position: absolute; top: 20px; width: 30%;"
+            src="{{guia.picture}}" alt="Perfil">
+          <p>Correo: {{guia.email}} </p>
+          <p>Numero Telefonico: {{guia.phone}}</p>
+          <p>Sitio Web: {{guia.address}}</p>
+          <p>Idiomas: <span class="new badge blue" data-badge-caption="" *ngFor="let idioma of guia.languages">
+              {{idioma.name}}</span></p>
+
+        </div>
+        <div class="content-details fadeIn">
+
+          <p class="content-text">{{guia.about}}</p>
+        </div>
+        <div class="card-action">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">send</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
